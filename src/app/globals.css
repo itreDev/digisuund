@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #35848d;
+  --color-primary-light: #f3f8f9;
+  --color-secondary: #344256;
+  --color-tertiary: #f5f5f5;
+  --color-description: #64758b;
+  --color-muted: #344256;
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-border: #e5e7eb;
+  --color-card: #ffffff;
+  --color-card-foreground: #000000;
+  --color-accent: #e49167;
+  --color-chip: #c67953;
+  --color-input: #dee6ed;
+
+  --color-card-gradient: linear-gradient(135deg, #35848d, #4a9ba5);
+
+  --font-inter: var(--font-inter);
+  --font-playfair-display: var(--font-playfair-display);
+}
+
+:root {
+  --gradient: linear-gradient(135deg, #35848d, #4a9ba5);
+  --gradient-hero: linear-gradient(180deg, #ffffff, #f5f8f9);
+  --gradient-accent: linear-gradient(135deg, #d67a5a, #e68f6f);
+  --gradient-subtle: linear-gradient(180deg, transparent, hsl(186 30% 98%));
+  --border: 210 30% 90%;
+  --background: 0 0% 100%;
+  --primary: 186 45% 38%;
+  --shadow-medium: 0 4px 6px -1px hsl(186 45% 38% / 0.08),
+    0 2px 4px -2px hsl(186 45% 38% / 0.06);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-secondary);
+  font-family: var(--font-inter), sans-serif;
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-7xl;
+  }
+}
