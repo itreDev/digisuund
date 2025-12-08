@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,8 +9,14 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const playfair_display = Playfair_Display({
-  variable: "--font-playfair-display",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["600", "700"],
+});
+
+const open_sans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
 });
 
@@ -25,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="et-EE">
+    <html lang="et">
       <body
-        className={`${inter.variable} ${playfair_display.variable} antialiased`}
+        className={`${inter.variable} ${montserrat.variable} ${open_sans.variable} antialiased`}
       >
         <Header />
         <main className="min-h-screen">{children}</main>

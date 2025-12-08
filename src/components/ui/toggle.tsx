@@ -1,4 +1,4 @@
-import cn from "classnames";
+import { cn } from "@/lib/utils";
 
 interface ToggleProps {
   checked: boolean;
@@ -31,7 +31,7 @@ export const Toggle = ({
       <div
         className={cn(
           "w-11 h-6 rounded-full transition-colors duration-200 relative",
-          checked ? "bg-primary" : "bg-gray-200"
+          checked ? "bg-primary" : "bg-muted/30"
         )}
       >
         <div

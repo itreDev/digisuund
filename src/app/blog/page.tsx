@@ -38,51 +38,51 @@ export default function BlogPage() {
     },
   ];
   return (
-    <section className="pt-32 pb-20 px-4 container">
-      <div className="max-w-6xl">
+    <section className="pt-32 pb-20 px-4 w-full section-bg-subtle">
+      <div className="container">
         <div className="text-center mb-24 space-y-6">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair-display font-bold">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-montserrat font-bold">
             Blogi
           </h1>
           <p className="text-xl text-description max-w-2xl mx-auto font-light leading-relaxed">
             Praktilised nõuanded ja teadmised digiturunduse maailmast
           </p>
         </div>
-      </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {posts.map((post) => (
-          <Card key={post.title}>
-            <div className="aspect-[4/3] bg-description overflow-hidden relative">
-              <Image
-                src={post.image}
-                alt={post.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-
-            <div className="p-8 space-y-4">
-              <div className="flex items-center gap-3">
-                <Chip>{post.type}</Chip>
-                <div className="flex items-center gap-1.5 text-xs text-description font-light">
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>{formatEstonianDate(post.date)}</span>
-                </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {posts.map((post) => (
+            <Card key={post.title}>
+              <div className="aspect-[4/3] bg-description overflow-hidden relative">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
               </div>
-              <h3 className="text-xl font-playfair-display font-semibold line-clamp-2 leading-snug">
-                {post.title}
-              </h3>
-              <p className="text-description line-clamp-3 font-light leading-relaxed">
-                {post.description}
-              </p>
-            </div>
-          </Card>
-        ))}
-      </div>
-      <div className="mt-24 text-center">
-        <p className="text-lg text-description font-light">
-          Rohkem artikleid tuleb peagi
-        </p>
+
+              <div className="p-8 space-y-4">
+                <div className="flex items-center gap-3">
+                  <Chip>{post.type}</Chip>
+                  <div className="flex items-center gap-1.5 text-xs text-description font-light">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>{formatEstonianDate(post.date)}</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-montserrat font-semibold line-clamp-2 leading-snug">
+                  {post.title}
+                </h3>
+                <p className="text-description line-clamp-3 font-light leading-relaxed">
+                  {post.description}
+                </p>
+              </div>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-24 text-center">
+          <p className="text-lg text-description font-light">
+            Rohkem artikleid tuleb peagi
+          </p>
+        </div>
       </div>
     </section>
   );

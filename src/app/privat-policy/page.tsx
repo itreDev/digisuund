@@ -2,7 +2,7 @@ export default function PrivacyPolicyPage() {
   return (
     <section className="pt-32 pb-20 px-4 container mx-auto">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-center sm:mb-20 mb-10 sm:mt-10 mt-0 sm:text-[60px] text-3xl font-playfair-display font-bold">
+        <h1 className="text-center sm:mb-20 mb-10 sm:mt-10 mt-0 sm:text-[60px] text-3xl font-montserrat font-bold">
           Privaatsuspoliitika
         </h1>
 
@@ -31,11 +31,11 @@ export default function PrivacyPolicyPage() {
             määrusega (GDPR), mis jõustus 25.05.2018.
           </p>
 
-          <h3 className="text-2xl font-playfair-display font-bold mt-8 mb-4">
+          <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
             Andmete kogumine ja kasutamine
           </h3>
 
-          <h3 className="text-2xl font-playfair-display font-bold mt-8 mb-4">
+          <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
             Milliseid andmeid me kogume
           </h3>
 
@@ -68,10 +68,10 @@ export default function PrivacyPolicyPage() {
             <li>Kui kommenteerite meie veebilehel olevaid postitusi</li>
           </ul>
 
-          <h3 className="text-2xl font-playfair-display font-bold mt-8 mb-4">
+          <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
             Kogutavad andmetüübid
           </h3>
-          <h4 className="text-xl font-playfair-display font-semibold mt-6 mb-4">
+          <h4 className="text-xl font-montserrat font-semibold mt-6 mb-4">
             Isikuandmed
           </h4>
 
@@ -92,7 +92,7 @@ export default function PrivacyPolicyPage() {
             <li>Informatsioon Teie veebibrauseri ja IP-aadressi kohta</li>
           </ul>
 
-          <h4 className="text-xl font-playfair-display font-semibold mt-6 mb-4">
+          <h4 className="text-xl font-montserrat font-semibold mt-6 mb-4">
             Logifailid
           </h4>
 
@@ -176,7 +176,7 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h3 className="text-2xl font-playfair-display font-bold mt-8 mb-4">
+          <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
             Kuidas me andmeid kasutame
           </h3>
 
@@ -226,7 +226,7 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h3 className="text-2xl font-playfair-display font-bold mt-8 mb-4">
+          <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
             Millistel juhtudel on võimalik, et jagame Teie andmeid
           </h3>
 
@@ -261,7 +261,7 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h3 className="text-2xl font-playfair-display font-bold mt-8 mb-4">
+          <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
             Teie isikuandmete säilitamine
           </h3>
 
@@ -282,7 +282,7 @@ export default function PrivacyPolicyPage() {
             neid andmeid pikemaks ajaks säilitama.
           </p>
 
-          <h3 className="text-2xl font-playfair-display font-bold mt-8 mb-4">
+          <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
             Laste andmete töötlemine
           </h3>
 
@@ -293,7 +293,7 @@ export default function PrivacyPolicyPage() {
             isiku kõigist meie andmebaasidest.
           </p>
 
-          <h3 className="text-2xl font-playfair-display font-bold mt-8 mb-4">
+          <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
             Teie õigused oma andmete kaitsmiseks
           </h3>
 
@@ -327,7 +327,7 @@ export default function PrivacyPolicyPage() {
             reguleeriva asutuse või andmekaitseasutuse poole.
           </p>
 
-          <h3 className="text-2xl font-playfair-display font-bold mt-8 mb-4">
+          <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
             GDPR andmekaitseõigused
           </h3>
 
@@ -365,7 +365,7 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h3 className="text-2xl font-playfair-display font-bold mt-8 mb-4">
+          <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
             Privaatsuspoliitika uuendused
           </h3>
 

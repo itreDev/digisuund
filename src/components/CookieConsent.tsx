@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Button, Toggle } from "@/components/ui";
+import { Button, Toggle, Checkbox } from "@/components/ui";
 import { X, Settings } from "lucide-react";
-import cn from "classnames";
+import { cn } from "@/lib/utils";
 
 type CookieCategory =
   | "performance"
@@ -104,9 +104,15 @@ export default function CookieConsent() {
     <>
       {showBanner && !showModal && (
         <div className="fixed bottom-6 left-6 z-50 max-w-md animate-in slide-in-from-bottom-5">
-          <div className="bg-white rounded-lg border border-[hsl(var(--border)/0.6)] shadow-lg p-6 space-y-4">
+          <div className="bg-white rounded-lg border border-[hsl(var(--border)/0.6)] shadow-lg p-6 space-y-4 relative">
+            <button
+              onClick={() => setShowBanner(false)}
+              className="text-description hover:text-foreground transition-colors absolute top-4 right-4 cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
             <div className="space-y-3">
-              <h3 className="text-lg font-bold font-playfair-display">
+              <h3 className="text-lg font-bold font-montserrat">
                 See veebisait kasutab küpsiseid
               </h3>
               <p className="text-sm text-description leading-relaxed">
@@ -126,48 +132,40 @@ export default function CookieConsent() {
 
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
+                <Checkbox
                   id="banner-performance"
                   checked={preferences.performance}
                   onChange={() => toggleCategory("performance")}
-                  className="rounded border-border"
                 />
                 <label htmlFor="banner-performance" className="cursor-pointer">
                   JÕUDLUSKÜPSISED
                 </label>
               </div>
               <div className="flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
+                <Checkbox
                   id="banner-advertising"
                   checked={preferences.advertising}
                   onChange={() => toggleCategory("advertising")}
-                  className="rounded border-border"
                 />
                 <label htmlFor="banner-advertising" className="cursor-pointer">
                   REKLAAMKÜPSISED
                 </label>
               </div>
               <div className="flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
+                <Checkbox
                   id="banner-functional"
                   checked={preferences.functional}
                   disabled
-                  className="rounded border-border"
                 />
                 <label htmlFor="banner-functional" className="cursor-pointer">
                   FUNKTIONAALSED KÜPSISED
                 </label>
               </div>
               <div className="flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
+                <Checkbox
                   id="banner-unclassified"
                   checked={preferences.unclassified}
                   onChange={() => toggleCategory("unclassified")}
-                  className="rounded border-border"
                 />
                 <label htmlFor="banner-unclassified" className="cursor-pointer">
                   KLASSIFITSEERIMATA KÜPSISED
@@ -212,7 +210,7 @@ export default function CookieConsent() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between p-6 border-b border-border">
-              <h2 className="text-2xl font-bold font-playfair-display">
+              <h2 className="text-2xl font-bold font-montserrat">
                 See veebisait kasutab küpsiseid
               </h2>
               <button

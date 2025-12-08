@@ -1,47 +1,122 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #35848d;
-  --color-primary-light: #f3f8f9;
-  --color-secondary: #344256;
-  --color-tertiary: #f5f5f5;
-  --color-description: #64758b;
-  --color-muted: #344256;
-  --color-background: #ffffff;
-  --color-foreground: #000000;
-  --color-border: #e5e7eb;
+  /* Color Palette */
+  --color-blush-rose: #d9a6b3;
+  --color-deep-plum: #5a3e5b;
+  --color-electric-lilac: #b899ff;
+  --color-cool-mint: #aee6d8;
+  --color-soft-pearl: #f4f0f6;
+  --color-graphite: #2d2d2f;
+
+  /* Semantic Color Mapping */
+  --color-primary: var(--color-electric-lilac);
+  --color-primary-light: var(--color-soft-pearl);
+  --color-secondary: var(--color-deep-plum);
+  --color-tertiary: var(--color-cool-mint);
+  --color-description: var(--color-graphite);
+  --color-muted: var(--color-graphite);
+  --color-background: var(--color-soft-pearl);
+  --color-foreground: var(--color-graphite);
+  --color-border: var(--color-blush-rose);
   --color-card: #ffffff;
-  --color-card-foreground: #000000;
-  --color-accent: #e49167;
-  --color-chip: #c67953;
-  --color-input: #dee6ed;
+  --color-card-foreground: var(--color-graphite);
+  --color-accent: var(--color-electric-lilac);
+  --color-chip: var(--color-blush-rose);
+  --color-input: var(--color-electric-lilac);
+  --color-input-light: rgba(184, 153, 255, 0.4);
+  --color-ring: var(--color-primary);
 
-  --color-card-gradient: linear-gradient(135deg, #35848d, #4a9ba5);
+  /* Visual Elements */
+  --color-visual: var(--color-blush-rose);
+  /* Titles & Brand Tone */
+  --color-title: var(--color-deep-plum);
+  /* CTA Buttons & Highlights */
+  --color-cta: var(--color-electric-lilac);
+  /* Section Backgrounds & Contrast Blocks */
+  --color-section-bg: var(--color-cool-mint);
+  /* Main Background */
+  --color-main-bg: var(--color-soft-pearl);
+  /* Text */
+  --color-text: var(--color-graphite);
 
-  --font-inter: var(--font-inter);
-  --font-playfair-display: var(--font-playfair-display);
+  --color-card-gradient: linear-gradient(
+    135deg,
+    var(--color-electric-lilac),
+    var(--color-blush-rose)
+  );
 }
 
 :root {
-  --gradient: linear-gradient(135deg, #35848d, #4a9ba5);
-  --gradient-hero: linear-gradient(180deg, #ffffff, #f5f8f9);
-  --gradient-accent: linear-gradient(135deg, #d67a5a, #e68f6f);
-  --gradient-subtle: linear-gradient(180deg, transparent, hsl(186 30% 98%));
-  --border: 210 30% 90%;
-  --background: 0 0% 100%;
-  --primary: 186 45% 38%;
-  --shadow-medium: 0 4px 6px -1px hsl(186 45% 38% / 0.08),
-    0 2px 4px -2px hsl(186 45% 38% / 0.06);
+  --gradient: linear-gradient(
+    135deg,
+    var(--color-electric-lilac),
+    var(--color-blush-rose)
+  );
+  --gradient-hero: linear-gradient(180deg, var(--color-soft-pearl), #ffffff);
+  --gradient-accent: linear-gradient(
+    135deg,
+    var(--color-electric-lilac),
+    var(--color-blush-rose)
+  );
+  --gradient-subtle: linear-gradient(
+    180deg,
+    transparent,
+    rgba(174, 230, 216, 0.3)
+  );
+  --border: 320 25% 80%;
+  --background: 280 20% 96%;
+  --primary: 270 100% 80%;
+  --shadow-medium: 0 4px 6px -1px rgba(90, 62, 91, 0.08),
+    0 2px 4px -2px rgba(90, 62, 91, 0.06);
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-secondary);
-  font-family: var(--font-inter), sans-serif;
+  background-color: var(--color-main-bg);
+  color: var(--color-text);
+  font-family: var(--font-inter), var(--font-open-sans), sans-serif;
 }
 
 @layer utilities {
   .container {
-    @apply mx-auto max-w-7xl;
+    @apply mx-auto max-w-6xl;
+  }
+
+  /* Font utilities */
+  .font-montserrat {
+    font-family: var(--font-montserrat), sans-serif;
+  }
+
+  .font-title {
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 700;
+    color: var(--color-title);
+  }
+
+  .font-title-semibold {
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+
+  .font-content {
+    font-family: var(--font-inter), var(--font-open-sans), sans-serif;
+  }
+
+  /* Title color utility */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-title);
+  }
+
+  /* Section background */
+  .section-bg-subtle {
+    background-image: var(--gradient-subtle);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
   }
 }

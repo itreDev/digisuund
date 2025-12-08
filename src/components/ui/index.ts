@@ -5,3 +5,5 @@ export * from "./input";
 export * from "./button";
 export * from "./text-area";
 export * from "./toggle";
+export * from "./alert";
+export * from "./checkbox";

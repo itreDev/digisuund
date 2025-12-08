@@ -1,4 +1,4 @@
-import cn from "classnames";
+import { cn } from "@/lib/utils";
 
 interface ButtonProps {
   children: React.ReactNode;

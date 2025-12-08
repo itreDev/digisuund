@@ -111,10 +111,10 @@ export default function TeenusedPage() {
     },
   ];
   return (
-    <section className="pt-32 pb-20 px-2 container">
-      <div className=" max-w-6xl">
+    <section className="pt-32 pb-20 px-2 w-full section-bg-subtle">
+      <div className="container">
         <div className="text-center mb-24 space-y-6">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair-display font-bold">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-montserrat font-bold">
             Teenused
           </h1>
           <p className="text-xl text-description max-w-2xl mx-auto font-light leading-relaxed">
@@ -130,7 +130,7 @@ export default function TeenusedPage() {
                   <service.icon className="h-6 w-6 text-primary" />
                 </div>
               </div>
-              <h3 className="text-2xl font-playfair-display font-semibold mb-4">
+              <h3 className="text-2xl font-montserrat font-semibold mb-4">
                 {service.title}
               </h3>
               <p className="text-description leading-relaxed font-light mb-6">
@@ -153,7 +153,7 @@ export default function TeenusedPage() {
           ))}
         </div>
         <div className="text-center space-y-6 pt-8">
-          <h2 className="text-3xl md:text-4xl font-playfair-display font-bold">
+          <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
             Huvitatud?
           </h2>
           <p className="text-lg text-description max-w-xl mx-auto font-light">
