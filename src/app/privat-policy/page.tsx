@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <p>Teie andmete töötleja on Digisuund</p>
-          <p>e-post: info@digisuund.ee</p>
+          <p>e-post: digisuund@gmail.com</p>
 
           <p>
             Kogume ja töötleme teavet kooskõlas Euroopa Liidu üldise andmekaitse
@@ -317,7 +317,7 @@ export default function PrivacyPolicyPage() {
             loobuda meiega suhtlemisest ja nõuda, et eemaldaksime Teie andmed
             meie andmebaasidest. Kui leiate, et andmed, mida Teie kohta kogunud
             oleme, on ebatäpsed, aegunud, puudulikud, ebaolulised või eksitavad,
-            palun võtke meiega ühendust e-posti teel: info@digisuund.ee. Teeme
+            palun võtke meiega ühendust e-posti teel: digisuund@gmail.com. Teeme
             kõik meist oleneva, et parandada ebatäpset, puudulikku, eksitavat
             või aegunud teavet. Kui arvate, et oleme rikkunud asjakohast
             andmekaitseseadust ja soovite esitada kaebuse, palun võtke meiega

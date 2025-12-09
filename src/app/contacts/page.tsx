@@ -49,6 +49,7 @@ export default function ContactsPage() {
       phone: "",
       message: "",
       newsletter: false as boolean,
+      privacyConsent: false as boolean,
     },
   });
 
@@ -220,7 +221,25 @@ export default function ContactsPage() {
                   error={errors.message?.message}
                 />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-3">
+                <div className="flex items-start gap-2">
+                  <Checkbox
+                    id="privacyConsent"
+                    {...register("privacyConsent")}
+                    isScope={true}
+                  />
+                  <label
+                    htmlFor="privacyConsent"
+                    className="text-sm font-light cursor-pointer"
+                  >
+                    Nõustun <a href="/privat-policy" className="text-primary underline">privaatsuspoliitikaga</a>
+                  </label>
+                </div>
+                {errors.privacyConsent && (
+                  <p className="text-sm text-red-500 ml-6">
+                    {errors.privacyConsent.message}
+                  </p>
+                )}
                 <div className="flex items-start gap-2">
                   <Checkbox
                     id="newsletter"
@@ -234,11 +253,6 @@ export default function ContactsPage() {
                     Soovin liituda uudiskirjaga ja saada digiturunduse nõuandeid
                   </label>
                 </div>
-                {errors.newsletter && (
-                  <p className="text-sm text-red-500 ml-6">
-                    {errors.newsletter.message}
-                  </p>
-                )}
               </div>
               <Button
                 type="submit"

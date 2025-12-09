@@ -1,7 +1,15 @@
 "use client";
 import { ButtonLink } from "@/components/ui";
 import { AnimatedCard } from "@/components/AnimatedCard";
-import { ArrowRight, Users, TrendingUp, Zap, Target } from "lucide-react";
+import {
+  ArrowRight,
+  Users,
+  TrendingUp,
+  Zap,
+  Target,
+  BarChart3,
+  CircleCheck,
+} from "lucide-react";
 import Image from "next/image";
 
 const services = [
@@ -29,6 +37,18 @@ const services = [
       "Muudame külastajad klientideks läbi testimise ja optimeerimise.",
     icon: Zap,
   },
+  {
+    title: "Analüütika ja aruandlus",
+    description:
+      "Jälgime Sinu tulemusi ja anname regulaarselt ülevaadet tehtud tööst.",
+    icon: BarChart3,
+  },
+  {
+    title: "Konsultatsioonid ja koolitus",
+    description:
+      "Aitame Sinu meeskonnal õppida digiturunduse põhitõdesid ja parimaid praktikaid.",
+    icon: CircleCheck,
+  },
 ];
 export default function HomePage() {
   return (
@@ -53,7 +73,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-6 md:pt-8 px-4">
               <ButtonLink
-                href="/service"
+                href="/contacts"
                 size="large"
                 className="w-full sm:w-auto"
               >

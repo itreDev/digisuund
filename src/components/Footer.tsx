@@ -30,7 +30,7 @@ export default function Footer() {
               Digisuund
             </h3>
             <p className="text-sm text-description font-light">
-              Professionaalne digiturunduse konsultatsioon Eesti ettevõtetele
+              Tulemustele orienteeritud digiturunduse partner Eesti ettevõtetele
             </p>
           </div>
           <div className="space-y-4">

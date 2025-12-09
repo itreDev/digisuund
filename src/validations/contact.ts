@@ -20,8 +20,9 @@ export const contactFormSchema = z.object({
     .min(1, "Sõnum on kohustuslik")
     .min(5, "Sõnum peab olema vähemalt 5 tähemärki")
     .max(1000, "Sõnum ei tohi ületada 1000 tähemärki"),
-  newsletter: z.boolean().refine((val) => val === true, {
-    message: "Palun nõustu uudiskirjaga liitumisega",
+  newsletter: z.boolean().default(false),
+  privacyConsent: z.boolean().refine((val) => val === true, {
+    message: "Palun nõustu privaatsuspoliitikaga",
   }),
 });
 
