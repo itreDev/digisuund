@@ -1,4 +1,6 @@
-import { ButtonLink, Card } from "@/components/ui";
+"use client";
+import { ButtonLink } from "@/components/ui";
+import { AnimatedCard } from "@/components/AnimatedCard";
 import {
   Target,
   Search,
@@ -10,6 +12,7 @@ import {
   TrendingUp,
   CircleCheck,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function TeenusedPage() {
   const services = [
@@ -111,7 +114,7 @@ export default function TeenusedPage() {
     },
   ];
   return (
-    <section className="pt-32 pb-20 px-2 w-full section-bg-subtle">
+    <section className="pt-32 pb-20 px-2 w-full hero-gradient">
       <div className="container">
         <div className="text-center mb-24 space-y-6">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-montserrat font-bold">
@@ -122,12 +125,16 @@ export default function TeenusedPage() {
             kasvada
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-24">
-          {services.map((service) => (
-            <Card key={service.title} className="p-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-24 items-stretch">
+          {services.map((service, index) => (
+            <AnimatedCard
+              key={service.title}
+              className="p-10 equal-height"
+              delay={index * 100}
+            >
               <div className="mb-6">
-                <div className="inline-flex p-3 rounded-2xl bg-primary-light group-hover:bg-primary/10 transition-colors duration-500">
-                  <service.icon className="h-6 w-6 text-primary" />
+                <div className="inline-flex p-4 rounded-2xl bg-primary-light group-hover:bg-primary/10 transition-colors duration-500 icon-pulse-container">
+                  <service.icon className="h-8 w-8 text-primary" />
                 </div>
               </div>
               <h3 className="text-2xl font-montserrat font-semibold mb-4">
@@ -136,7 +143,7 @@ export default function TeenusedPage() {
               <p className="text-description leading-relaxed font-light mb-6">
                 {service.description}
               </p>
-              <ul className="space-y-2">
+              <ul className="space-y-2 flex-1">
                 {service.features.map((feature, index) => (
                   <li
                     key={index}
@@ -149,7 +156,7 @@ export default function TeenusedPage() {
                   </li>
                 ))}
               </ul>
-            </Card>
+            </AnimatedCard>
           ))}
         </div>
         <div className="text-center space-y-6 pt-8">
@@ -160,7 +167,11 @@ export default function TeenusedPage() {
             Broneeri tasuta konsultatsioon ja arutame, kuidas saame Sind aidata
           </p>
           <div className="pt-4">
-            <ButtonLink size="large" className="inline-flex" href="/contacts">
+            <ButtonLink
+              href="/contacts"
+              size="large"
+              className="md:whitespace-nowrap inline-flex"
+            >
               Võta ühendust
             </ButtonLink>
           </div>

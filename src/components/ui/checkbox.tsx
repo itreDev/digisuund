@@ -5,10 +5,11 @@ import { cn } from "@/lib/utils";
 interface CheckboxProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type" | "ref"> {
   error?: string;
+  isScope?: boolean;
 }
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ className, error, ...props }, ref) => {
+  ({ className, error, isScope = false, ...props }, ref) => {
     return (
       <div className="relative shrink-0 h-4 w-4">
         <input
@@ -25,7 +26,12 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           )}
           {...props}
         />
-        <div className="absolute  inset-0 flex items-center justify-center opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity">
+        <div
+          className={cn(
+            "absolute  inset-0 flex items-center justify-center opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity",
+            isScope && "top-0.5"
+          )}
+        >
           <Check className="h-3 w-3 text-white stroke-[2.5]" />
         </div>
       </div>

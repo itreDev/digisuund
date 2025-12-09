@@ -15,7 +15,18 @@ export async function POST(request: NextRequest) {
     const recipientEmail = process.env.RECIPIENT_EMAIL || emailUser;
 
     if (!emailUser || !emailPassword) {
-      console.error("Email configuration is missing");
+      const message =
+        "Email configuration is missing. Skipping send in non-production.";
+
+      if (process.env.NODE_ENV !== "production") {
+        console.warn(message);
+        return NextResponse.json(
+          { message: "Email sending skipped in development" },
+          { status: 200 }
+        );
+      }
+
+      console.error(message);
       return NextResponse.json(
         { error: "Server configuration error" },
         { status: 500 }

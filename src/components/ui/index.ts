@@ -7,3 +7,4 @@ export * from "./text-area";
 export * from "./toggle";
 export * from "./alert";
 export * from "./checkbox";
+export * from "./modal";

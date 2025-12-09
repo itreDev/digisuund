@@ -53,7 +53,11 @@
     var(--color-electric-lilac),
     var(--color-blush-rose)
   );
-  --gradient-hero: linear-gradient(180deg, var(--color-soft-pearl), #ffffff);
+  --gradient-hero: linear-gradient(
+    180deg,
+    var(--color-soft-pearl),
+    rgba(174, 230, 219, 0.22)
+  );
   --gradient-accent: linear-gradient(
     135deg,
     var(--color-electric-lilac),
@@ -64,11 +68,24 @@
     transparent,
     rgba(174, 230, 216, 0.3)
   );
+  --gradient-cta: linear-gradient(135deg, #b899ff, #d9a6b3);
   --border: 320 25% 80%;
   --background: 280 20% 96%;
   --primary: 270 100% 80%;
   --shadow-medium: 0 4px 6px -1px rgba(90, 62, 91, 0.08),
     0 2px 4px -2px rgba(90, 62, 91, 0.06);
+  --shadow-title: 0 2px 8px rgba(90, 62, 91, 0.15),
+    0 1px 3px rgba(90, 62, 91, 0.1);
+  --shadow-cta: 0 8px 16px rgba(184, 153, 255, 0.3),
+    0 4px 8px rgba(184, 153, 255, 0.2);
+  --shadow-cta-hover: 0 12px 24px rgba(184, 153, 255, 0.4),
+    0 6px 12px rgba(184, 153, 255, 0.3);
+  --shadow-card-hover: 0 8px 16px rgba(90, 62, 91, 0.12),
+    0 4px 8px rgba(90, 62, 91, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -111,6 +128,7 @@ body {
   h5,
   h6 {
     color: var(--color-title);
+    text-shadow: var(--shadow-title);
   }
 
   /* Section background */
@@ -118,5 +136,77 @@ body {
     background-image: var(--gradient-subtle);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+  }
+
+  /* Hero gradient background */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Fade-in animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile menu slide-in animation */
+  @keyframes slideInFromTop {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .fade-in-up.visible {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Icon pulse animation */
+  @keyframes iconPulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+  }
+
+  .icon-pulse-container:hover svg,
+  .icon-pulse-container:hover [class*="lucide"],
+  .icon-pulse-container:hover img {
+    animation: iconPulse 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform-origin: center;
+    will-change: transform;
+  }
+
+  /* Button glow effect */
+  @keyframes buttonGlow {
+    0%,
+    100% {
+      box-shadow: var(--shadow-cta);
+    }
+    50% {
+      box-shadow: var(--shadow-cta-hover);
+    }
+  }
+
+  .button-glow:hover {
+    animation: buttonGlow 1.5s ease-in-out infinite;
   }
 }

@@ -4,25 +4,27 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input, Button, TextArea, Alert, Checkbox } from "@/components/ui";
 import { Card } from "@/components/ui/card";
+import { AnimatedCard } from "@/components/AnimatedCard";
 import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 import { contactFormSchema, type ContactFormData } from "@/validations/contact";
 
 const contactDetails = [
   {
     label: "E-post",
-    value: "info@digisuund.ee",
+    value: "digisuund@gmail.com",
     icon: Mail,
-    href: "mailto:info@digisuund.ee",
+    href: "mailto:digisuund@gmail.com",
   },
   {
     label: "Telefon",
-    value: "+372 5555 5555",
+    value: "+372 536 11983",
     icon: Phone,
-    href: "tel:+37255555555",
+    href: "tel:+37253611983",
   },
   {
     label: "Aadress",
-    value: "Tallinn, Estonia",
+    value: "Tartu, Eesti",
+    href: "https://www.google.com/maps/place/Tartu,+Eesti",
     icon: MapPin,
   },
 ];
@@ -80,7 +82,7 @@ export default function ContactsPage() {
   };
 
   return (
-    <section className="pt-32 pb-20 px-4 w-full section-bg-subtle">
+    <section className="pt-32 pb-20 px-4 w-full hero-gradient">
       <div className="container">
         <Alert
           type="success"
@@ -113,11 +115,15 @@ export default function ContactsPage() {
         </div>
         <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
           <div className="space-y-6">
-            {contactDetails.map((contact) => (
-              <Card key={contact.label} className="p-8">
+            {contactDetails.map((contact, index) => (
+              <AnimatedCard
+                key={contact.label}
+                className="p-8"
+                delay={index * 100}
+              >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-primary-light flex items-center justify-center shrink-0">
-                    <contact.icon className="h-5 w-5 text-primary" />
+                  <div className="w-12 h-12 rounded-2xl bg-primary-light flex items-center justify-center shrink-0 icon-pulse-container">
+                    <contact.icon className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2 font-montserrat">
@@ -127,6 +133,8 @@ export default function ContactsPage() {
                       <a
                         href={contact.href}
                         className="text-sm text-description hover:text-foreground transition-colors font-light"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {contact.value}
                       </a>
@@ -137,7 +145,7 @@ export default function ContactsPage() {
                     )}
                   </div>
                 </div>
-              </Card>
+              </AnimatedCard>
             ))}
           </div>
           <Card className="p-10 lg:col-span-2">
@@ -214,7 +222,11 @@ export default function ContactsPage() {
               </div>
               <div className="space-y-2">
                 <div className="flex items-start gap-2">
-                  <Checkbox id="newsletter" {...register("newsletter")} />
+                  <Checkbox
+                    id="newsletter"
+                    {...register("newsletter")}
+                    isScope={true}
+                  />
                   <label
                     htmlFor="newsletter"
                     className="text-sm font-light cursor-pointer"
@@ -233,6 +245,7 @@ export default function ContactsPage() {
                 size="default"
                 className="h-12"
                 disabled={isSubmitting}
+                scale={false}
               >
                 {isSubmitting ? (
                   <>

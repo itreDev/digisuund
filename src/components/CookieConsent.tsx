@@ -1,8 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Button, Toggle, Checkbox } from "@/components/ui";
+import { Button, Checkbox } from "@/components/ui";
 import { X, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
+import CookieModal from "./CookieModal";
 
 type CookieCategory =
   | "performance"
@@ -20,9 +21,7 @@ interface CookiePreferences {
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [activeTab, setActiveTab] = useState<"statement" | "about">(
-    "statement"
-  );
+  const [bannerVisible, setBannerVisible] = useState(false);
   const [preferences, setPreferences] = useState<CookiePreferences>({
     performance: false,
     advertising: false,
@@ -47,6 +46,17 @@ export default function CookieConsent() {
     }
   }, []);
 
+  useEffect(() => {
+    if (showBanner && !showModal) {
+      // Trigger animation after mount
+      requestAnimationFrame(() => {
+        setBannerVisible(true);
+      });
+    } else {
+      setBannerVisible(false);
+    }
+  }, [showBanner, showModal]);
+
   const handleAcceptAll = () => {
     const allAccepted = {
       performance: true,
@@ -56,8 +66,11 @@ export default function CookieConsent() {
     };
     setPreferences(allAccepted);
     localStorage.setItem("cookieConsent", JSON.stringify(allAccepted));
-    setShowBanner(false);
-    setShowModal(false);
+    setBannerVisible(false);
+    setTimeout(() => {
+      setShowBanner(false);
+      setShowModal(false);
+    }, 300);
   };
 
   const handleRejectAll = () => {
@@ -69,8 +82,11 @@ export default function CookieConsent() {
     };
     setPreferences(allRejected);
     localStorage.setItem("cookieConsent", JSON.stringify(allRejected));
-    setShowBanner(false);
-    setShowModal(false);
+    setBannerVisible(false);
+    setTimeout(() => {
+      setShowBanner(false);
+      setShowModal(false);
+    }, 300);
   };
 
   const handleSave = () => {
@@ -83,12 +99,38 @@ export default function CookieConsent() {
     setShowModal(false);
   };
 
+  const handleOpenModal = () => {
+    setBannerVisible(false);
+    setTimeout(() => {
+      setShowModal(true);
+      setShowBanner(false);
+    }, 300); // Wait for closing animation
+  };
+
+  const handleCloseBanner = () => {
+    setBannerVisible(false);
+    setTimeout(() => {
+      setShowBanner(false);
+    }, 300); // Wait for closing animation
+  };
+
   const handleCloseModal = () => {
     setPreferences((prev) => ({
       ...prev,
       functional: true,
     }));
     setShowModal(false);
+    // Show banner when modal closes only if user hasn't made a choice
+    setTimeout(() => {
+      const consent = localStorage.getItem("cookieConsent");
+      if (!consent) {
+        setShowBanner(true);
+        // Trigger animation after showing banner
+        requestAnimationFrame(() => {
+          setBannerVisible(true);
+        });
+      }
+    }, 300); // Wait for modal closing animation
   };
 
   const toggleCategory = (category: CookieCategory) => {
@@ -98,15 +140,29 @@ export default function CookieConsent() {
     }));
   };
 
+  const handlePreferencesChange = (newPreferences: CookiePreferences) => {
+    setPreferences(newPreferences);
+  };
+
   if (!showBanner && !showModal) return null;
 
   return (
     <>
       {showBanner && !showModal && (
-        <div className="fixed bottom-6 left-6 z-50 max-w-md animate-in slide-in-from-bottom-5">
-          <div className="bg-white rounded-lg border border-[hsl(var(--border)/0.6)] shadow-lg p-6 space-y-4 relative">
+        <div
+          className={cn(
+            "fixed z-50 transform transition-all duration-300 ease-out",
+            "bottom-0 left-0 right-0",
+            "w-full",
+            "min-[376px]:bottom-6 min-[376px]:left-6 min-[376px]:right-auto min-[376px]:w-auto min-[376px]:max-w-md",
+            bannerVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8"
+          )}
+        >
+          <div className="bg-white border-t min-[376px]:border border-[hsl(var(--border)/0.6)] shadow-lg p-4 md:p-6 space-y-3 md:space-y-4 relative min-[376px]:rounded-lg">
             <button
-              onClick={() => setShowBanner(false)}
+              onClick={handleCloseBanner}
               className="text-description hover:text-foreground transition-colors absolute top-4 right-4 cursor-pointer"
             >
               <X className="w-4 h-4" />
@@ -122,7 +178,7 @@ export default function CookieConsent() {
                 võivad seda kombineerida muu teabega, mille olete neile esitanud
                 või mille nad on kogunud teie teenuste kasutamisest.{" "}
                 <button
-                  onClick={() => setShowModal(true)}
+                  onClick={handleOpenModal}
                   className="text-primary hover:underline"
                 >
                   Rohkem teavet
@@ -173,260 +229,51 @@ export default function CookieConsent() {
               </div>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button
                 onClick={handleAcceptAll}
-                className="flex-1 bg-primary text-white hover:bg-primary/90"
+                scale={false}
+                className="w-full sm:flex-1 sm:w-auto h-11 md:h-12"
               >
                 NÕUSTU KÕIGIGA
               </Button>
               <Button
                 onClick={handleRejectAll}
                 variant="outline"
-                className="flex-1 border-border"
+                scale={false}
+                className="w-full sm:flex-1 sm:w-auto h-11 md:h-12"
               >
                 KEELDU KÕIGIST
               </Button>
             </div>
 
             <button
-              onClick={() => setShowModal(true)}
-              className="flex items-center gap-2 text-sm text-description hover:text-foreground transition-colors w-full justify-center"
+              onClick={handleOpenModal}
+              className="flex items-center gap-2 text-sm text-description transition-colors w-full justify-center cursor-pointer group"
             >
-              <Settings className="w-4 h-4" />
+              <Settings className="w-4 h-4 transition-colors duration-500 group-hover:text-primary" />
               NÄITA ÜKSIKASJU
             </button>
           </div>
         </div>
       )}
 
-      {showModal && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-          onClick={handleCloseModal}
-        >
-          <div
-            className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between p-6 border-b border-border">
-              <h2 className="text-2xl font-bold font-montserrat">
-                See veebisait kasutab küpsiseid
-              </h2>
-              <button
-                onClick={handleCloseModal}
-                className="text-description hover:text-foreground transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            <div className="p-6 space-y-6">
-              <p className="text-description leading-relaxed">
-                Kasutame küpsiseid sisu, reklaamide isikupärastamiseks ja
-                liikluse analüüsimiseks. Samuti jagame teavet meie saidi
-                kasutamise kohta oma reklaami- ja analüüsipartneritega, kes
-                võivad seda kombineerida muu teabega, mille olete neile esitanud
-                või mille nad on kogunud teie teenuste kasutamisest.{" "}
-                <a
-                  href="/privat-policy"
-                  className="text-primary hover:underline"
-                >
-                  Rohkem teavet
-                </a>
-              </p>
-
-              <div className="flex gap-4 border-b border-border">
-                <button
-                  onClick={() => setActiveTab("statement")}
-                  className={cn(
-                    "pb-3 px-2 text-sm font-medium transition-colors",
-                    activeTab === "statement"
-                      ? "text-primary border-b-2 border-primary"
-                      : "text-description hover:text-foreground"
-                  )}
-                >
-                  KÜPSISTE KASUTAMISE AVALDUS
-                </button>
-                <button
-                  onClick={() => setActiveTab("about")}
-                  className={cn(
-                    "pb-3 px-2 text-sm font-medium transition-colors",
-                    activeTab === "about"
-                      ? "text-primary border-b-2 border-primary"
-                      : "text-description hover:text-foreground"
-                  )}
-                >
-                  KÜPSISTEST
-                </button>
-              </div>
-
-              {activeTab === "statement" && (
-                <div className="space-y-6">
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-semibold mb-1">JÕUDLUSKÜPSISED</h4>
-                        <p className="text-sm text-description leading-relaxed">
-                          Jõudlusküpsiseid ehk analüütilisi küpsiseid
-                          kasutatakse selleks, et näha, kuidas külastajad
-                          veebisaiti kasutavad. Nende küpsistega ei ole võimalik
-                          külastajaid otseselt tuvastada.
-                        </p>
-                      </div>
-                      <Toggle
-                        checked={preferences.performance}
-                        onChange={(checked) =>
-                          setPreferences((prev) => ({
-                            ...prev,
-                            performance: checked,
-                          }))
-                        }
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-semibold mb-1">REKLAAMKÜPSISED</h4>
-                        <p className="text-sm text-description leading-relaxed">
-                          Reklaamküpsiseid kasutatakse selleks, et tuvastada,
-                          milliselt veebisaidilt külastaja saabus, nt
-                          sisupartnerite veebisaitidelt või bännervõrkudest.
-                          Neid küpsiseid võivad ettevõtted kasutada külastajate
-                          huvide profiili koostamiseks või teistel veebisaitidel
-                          asjakohaste reklaamide näitamiseks.
-                        </p>
-                      </div>
-                      <Toggle
-                        checked={preferences.advertising}
-                        onChange={(checked) =>
-                          setPreferences((prev) => ({
-                            ...prev,
-                            advertising: checked,
-                          }))
-                        }
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-semibold mb-1">
-                          FUNKTIONAALSED KÜPSISED
-                        </h4>
-                        <p className="text-sm text-description leading-relaxed">
-                          Funktsionaalseid küpsiseid kasutatakse veebisaidi
-                          külastajaga seotud andmete - näiteks keele, ajavööndi,
-                          täiustatud sisu - meelde jätmiseks.
-                        </p>
-                      </div>
-                      <Toggle
-                        checked={preferences.functional}
-                        onChange={(checked) =>
-                          setPreferences((prev) => ({
-                            ...prev,
-                            functional: checked,
-                          }))
-                        }
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-semibold mb-1">
-                          KLASSIFITSEERIMATA KÜPSISED
-                        </h4>
-                        <p className="text-sm text-description leading-relaxed">
-                          Klassifitseerimata küpsised on küpsised, mis ei kuulu
-                          ühtegi teise kategooriasse või mida ei ole veel
-                          kategoriseeritud.
-                        </p>
-                      </div>
-                      <Toggle
-                        checked={preferences.unclassified}
-                        onChange={(checked) =>
-                          setPreferences((prev) => ({
-                            ...prev,
-                            unclassified: checked,
-                          }))
-                        }
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {activeTab === "about" && (
-                <div className="space-y-4 text-description leading-relaxed">
-                  <p>
-                    Küpsised on väikesed tekstifailid, mille lisavad teie
-                    arvutisse teie poolt külastatavad veebisaidid. Veebisaidid
-                    kasutavad küpsiseid selleks, et aidata kasutajatel saidil
-                    paremini navigeerida ja teatud funktsioone kasutada.
-                    Veebisaidi nõuetekohaseks toimimiseks hädavajalikke
-                    küpsiseid võidakse teie arvutisse lisada ilma teie loata.
-                    Kõik muud küpsised tuleb enne brauserisse salvestamist heaks
-                    kiita.
-                  </p>
-                  <p>
-                    Te saate küpsiste kasutamise nõusolekut igal ajal muuta,
-                    külastades selleks meie{" "}
-                    <a
-                      href="/privat-policy"
-                      className="text-primary hover:underline"
-                    >
-                      privaatsuspoliitika lehte
-                    </a>
-                    .
-                  </p>
-                  <p>
-                    Kasutame küpsiseid ka andmete kogumiseks, et isikupärastada
-                    ja mõõta meie reklaamide tõhusust. Lisateabe saamiseks
-                    külastage{" "}
-                    <a
-                      href="https://policies.google.com/privacy"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
-                      Google'i privaatsuspoliitikat
-                    </a>
-                    .
-                  </p>
-                </div>
-              )}
-            </div>
-
-            <div className="flex gap-3 p-6 border-t border-border">
-              <Button
-                onClick={handleAcceptAll}
-                variant="outline"
-                className="flex-1 border-border"
-              >
-                NÕUSTU KÕIGIGA
-              </Button>
-              <Button
-                onClick={handleRejectAll}
-                variant="outline"
-                className="flex-1 border-border"
-              >
-                KEELDU KÕIGIST
-              </Button>
-              <Button
-                onClick={handleSave}
-                className="flex-1 bg-primary text-white hover:bg-primary/90"
-              >
-                SALVESTA JA SULGE
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
+      <CookieModal
+        open={showModal}
+        onOpenChange={(open) => {
+          if (!open) {
+            handleCloseModal();
+          } else {
+            setShowModal(true);
+            setShowBanner(false);
+          }
+        }}
+        preferences={preferences}
+        onPreferencesChange={handlePreferencesChange}
+        onAcceptAll={handleAcceptAll}
+        onRejectAll={handleRejectAll}
+        onSave={handleSave}
+      />
     </>
   );
 }

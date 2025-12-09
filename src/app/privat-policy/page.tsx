@@ -1,6 +1,6 @@
 export default function PrivacyPolicyPage() {
   return (
-    <section className="pt-32 pb-20 px-4 container mx-auto">
+    <section className="pt-32 pb-20 px-4 container mx-auto hero-gradient">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-center sm:mb-20 mb-10 sm:mt-10 mt-0 sm:text-[60px] text-3xl font-montserrat font-bold">
           Privaatsuspoliitika
@@ -8,11 +8,11 @@ export default function PrivacyPolicyPage() {
 
         <div className="prose prose-lg max-w-none space-y-6 text-description leading-relaxed">
           <p>
-            Digisuund jaoks on oluline Teie privaatsus ja järgida kõiki kehtivaid
-            seadusi ja määrusi mis tahes isikuandmete kohta, mida võime Teie kohta
-            koguda, kui külastate meie veebilehte. Meie veebisaiti kasutades
-            nõustute, et kogume ja kasutame Teie andmeid vastavalt käesolevale
-            privaatsuspoliitikale.
+            Digisuund jaoks on oluline Teie privaatsus ja järgida kõiki
+            kehtivaid seadusi ja määrusi mis tahes isikuandmete kohta, mida
+            võime Teie kohta koguda, kui külastate meie veebilehte. Meie
+            veebisaiti kasutades nõustute, et kogume ja kasutame Teie andmeid
+            vastavalt käesolevale privaatsuspoliitikale.
           </p>
 
           <p>
@@ -113,10 +113,10 @@ export default function PrivacyPolicyPage() {
           </ul>
 
           <p>
-            Logifailides olevat informatsiooni kasutatakse trendide analüüsimiseks,
-            veebilehe administreerimiseks, lehe külastajate tegevuste jälgimiseks
-            ning demograafilise info kogumiseks. Saadud teabe ei ole mõeldud, ega
-            võimaldagi isikut identifitseerida.
+            Logifailides olevat informatsiooni kasutatakse trendide
+            analüüsimiseks, veebilehe administreerimiseks, lehe külastajate
+            tegevuste jälgimiseks ning demograafilise info kogumiseks. Saadud
+            teabe ei ole mõeldud, ega võimaldagi isikut identifitseerida.
           </p>
 
           <p className="font-semibold mt-6">Küpsised</p>
@@ -138,8 +138,8 @@ export default function PrivacyPolicyPage() {
           <p>
             Küpsised jaotuvad püsi- ja sessiooniküpsisteks. Püsiküpsised jäävad
             Teie personaalarvutisse või mobiilseadmesse ka peale seda, kui olete
-            sulgenud brauseri või arvuti. Sessiooniküpsised kustutatakse aga kohe
-            pärast brauseri sulgemist.
+            sulgenud brauseri või arvuti. Sessiooniküpsised kustutatakse aga
+            kohe pärast brauseri sulgemist.
           </p>
 
           <ul className="list-disc my-4 mx-0 pl-10 space-y-2">
@@ -157,10 +157,10 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc my-4 mx-0 pl-10 space-y-2">
             <li>
               <strong>Vajalikud küpsised.</strong> Sessiooniküpsised, mille
-              eesmärgiks on võimaldada Teile meie veebisaidil pakutavate teenuste
-              kasutamist. Need küpsised aitavad kasutajaid autentida ja vältida
-              kasutajakontode pahatahtlikku kasutamist. Ilma nende küpsisteta ei
-              saa me Teile soovitud teenuseid pakkuda.
+              eesmärgiks on võimaldada Teile meie veebisaidil pakutavate
+              teenuste kasutamist. Need küpsised aitavad kasutajaid autentida ja
+              vältida kasutajakontode pahatahtlikku kasutamist. Ilma nende
+              küpsisteta ei saa me Teile soovitud teenuseid pakkuda.
             </li>
             <li>
               <strong>Teavitusküpsised.</strong> Need küpsised tuvastavad, kas
@@ -191,9 +191,9 @@ export default function PrivacyPolicyPage() {
               personaliseerimiseks ja laiendamiseks
             </li>
             <li>
-              Statistika kogumiseks, et saaksime pakkuda paremaid teenuseid ja/või
-              pakkumisi ning mõista ja analüüsida meie veebilehe külastajate
-              käitumist
+              Statistika kogumiseks, et saaksime pakkuda paremaid teenuseid
+              ja/või pakkumisi ning mõista ja analüüsida meie veebilehe
+              külastajate käitumist
             </li>
             <li>Teie tuvastamiseks telefoni, sõnumi või e-posti teel</li>
             <li>
@@ -205,8 +205,8 @@ export default function PrivacyPolicyPage() {
               Võimaldamaks meil Teiega ühenduses olla sotsiaalmeedia konto kaudu
             </li>
             <li>
-              Vestlusajaloo lugemise võimaldamiseks, et kiirendada asjakohase nõu
-              andmist
+              Vestlusajaloo lugemise võimaldamiseks, et kiirendada asjakohase
+              nõu andmist
             </li>
             <li>
               Eesmärgiga parandada meie teenuse kvaliteeti ja pakkuda tõhusamaid
@@ -217,8 +217,8 @@ export default function PrivacyPolicyPage() {
               funktsionaalsust
             </li>
             <li>
-              Meievaheliste interaktsioonide lihtsustamiseks ja kiirendamiseks, kui
-              võtate meiega ühendust
+              Meievaheliste interaktsioonide lihtsustamiseks ja kiirendamiseks,
+              kui võtate meiega ühendust
             </li>
             <li>
               Muudel eesmärkidel. Näiteks andmete analüüsimiseks, trendide
@@ -234,9 +234,9 @@ export default function PrivacyPolicyPage() {
             <li>
               Võime jagada või edastada Teie isikuandmeid seoses meie ettevõtte
               omanike vahetuse, ühinemise, varade müügi, finantseerimise või
-              omandamise käigus. Teavitame Teid Teie isikuandmete edastamisest ja
-              sellest, kui neile hakkavad kehtima mõne teise privaatsuspoliitika
-              sätted.
+              omandamise käigus. Teavitame Teid Teie isikuandmete edastamisest
+              ja sellest, kui neile hakkavad kehtima mõne teise
+              privaatsuspoliitika sätted.
             </li>
             <li>
               Võime jagada Teie andmeid oma partnerettevõtetega, nõudes neilt
@@ -268,10 +268,10 @@ export default function PrivacyPolicyPage() {
           <p>
             Ettevõte säilitab Teie isikuandmeid ainult seni, kuni see on vajalik
             käesolevas privaatsuspoliitikas sätestatud eesmärkidel. Säilitame ja
-            kasutame Teie isikuandmeid ulatuses, mis on vajalik meie juriidiliste
-            kohustuste täitmiseks (näiteks kui peame Teie andmeid säilitama
-            kehtivate seaduste järgimiseks), vaidluste lahendamiseks ning meie
-            juriidiliste lepingute ja eeskirjade jõustamiseks.
+            kasutame Teie isikuandmeid ulatuses, mis on vajalik meie
+            juriidiliste kohustuste täitmiseks (näiteks kui peame Teie andmeid
+            säilitama kehtivate seaduste järgimiseks), vaidluste lahendamiseks
+            ning meie juriidiliste lepingute ja eeskirjade jõustamiseks.
           </p>
 
           <p>
@@ -287,10 +287,10 @@ export default function PrivacyPolicyPage() {
           </h3>
 
           <p>
-            Ükski meie toode või teenus ei ole suunatud alla 13-aastastele lastele
-            ja me ei kogu teadlikult alla 13-aastaste laste andmeid. Kahtluse
-            korral, et töötleme alla 13-aastase isiku andmeid, eemaldame selle
-            isiku kõigist meie andmebaasidest.
+            Ükski meie toode või teenus ei ole suunatud alla 13-aastastele
+            lastele ja me ei kogu teadlikult alla 13-aastaste laste andmeid.
+            Kahtluse korral, et töötleme alla 13-aastase isiku andmeid,
+            eemaldame selle isiku kõigist meie andmebaasidest.
           </p>
 
           <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
@@ -298,33 +298,35 @@ export default function PrivacyPolicyPage() {
           </h3>
 
           <p>
-            Teil on alati õigus oma andmeid meiega mitte jagada, teadmisega, et see
-            võib mõjutada Teie kogemust meie veebisaidil. Kui otsustate oma andmeid
-            meiega mitte jagada, ei kohtle me Teid seepärast halvemini. Kui
-            edastate meile isiklikku teavet, mõistate, et kogume, hoiame, kasutame
-            ja avaldame seda vastavalt käesolevale privaatsuspoliitikale. Teil on
-            õigus nõuda Teie kohta kogutavate andmete üksikasju.
+            Teil on alati õigus oma andmeid meiega mitte jagada, teadmisega, et
+            see võib mõjutada Teie kogemust meie veebisaidil. Kui otsustate oma
+            andmeid meiega mitte jagada, ei kohtle me Teid seepärast halvemini.
+            Kui edastate meile isiklikku teavet, mõistate, et kogume, hoiame,
+            kasutame ja avaldame seda vastavalt käesolevale
+            privaatsuspoliitikale. Teil on õigus nõuda Teie kohta kogutavate
+            andmete üksikasju.
           </p>
 
           <p>
-            Saades Teie kohta isiklikku teavet kolmandalt osapoolelt, kaitseme seda
-            vastavalt käesolevale privaatsuspoliitikale ja Eesti Vabariigi
-            seadusele. Kui jagate ise kolmanda osapoole andmeid, kinnitate, et Teil
-            on selleks ka õigus ja luba. Isegi kui olete varem andnud nõusoleku
-            meiega oma isiklikke andmeid turunduse eesmärkidel jagada, jääb Teile
-            õigus igal ajal oma meelt muuta. Teil on alati õigus loobuda meiega
-            suhtlemisest ja nõuda, et eemaldaksime Teie andmed meie andmebaasidest.
-            Kui leiate, et andmed, mida Teie kohta kogunud oleme, on ebatäpsed,
-            aegunud, puudulikud, ebaolulised või eksitavad, palun võtke meiega
-            ühendust e-posti teel: info@digisuund.ee. Teeme kõik meist oleneva, et
-            parandada ebatäpset, puudulikku, eksitavat või aegunud teavet. Kui
-            arvate, et oleme rikkunud asjakohast andmekaitseseadust ja soovite
-            esitada kaebuse, palun võtke meiega ühendust, kasutades käesolevast
-            dokumendist leitavaid kontaktandmeid ja edastage meile kõik rikkumise
-            kohta käivad üksikasjad. Uurime Teie kaebust viivitamata ja vastame teile
-            kirjalikult, esitades uurimise tulemused ja toome välja sammud, mida
-            Teie kaebuse lahendamiseks ette võtame. Samuti on Teil õigus pöörduda
-            reguleeriva asutuse või andmekaitseasutuse poole.
+            Saades Teie kohta isiklikku teavet kolmandalt osapoolelt, kaitseme
+            seda vastavalt käesolevale privaatsuspoliitikale ja Eesti Vabariigi
+            seadusele. Kui jagate ise kolmanda osapoole andmeid, kinnitate, et
+            Teil on selleks ka õigus ja luba. Isegi kui olete varem andnud
+            nõusoleku meiega oma isiklikke andmeid turunduse eesmärkidel jagada,
+            jääb Teile õigus igal ajal oma meelt muuta. Teil on alati õigus
+            loobuda meiega suhtlemisest ja nõuda, et eemaldaksime Teie andmed
+            meie andmebaasidest. Kui leiate, et andmed, mida Teie kohta kogunud
+            oleme, on ebatäpsed, aegunud, puudulikud, ebaolulised või eksitavad,
+            palun võtke meiega ühendust e-posti teel: info@digisuund.ee. Teeme
+            kõik meist oleneva, et parandada ebatäpset, puudulikku, eksitavat
+            või aegunud teavet. Kui arvate, et oleme rikkunud asjakohast
+            andmekaitseseadust ja soovite esitada kaebuse, palun võtke meiega
+            ühendust, kasutades käesolevast dokumendist leitavaid kontaktandmeid
+            ja edastage meile kõik rikkumise kohta käivad üksikasjad. Uurime
+            Teie kaebust viivitamata ja vastame teile kirjalikult, esitades
+            uurimise tulemused ja toome välja sammud, mida Teie kaebuse
+            lahendamiseks ette võtame. Samuti on Teil õigus pöörduda reguleeriva
+            asutuse või andmekaitseasutuse poole.
           </p>
 
           <h3 className="text-2xl font-montserrat font-bold mt-8 mb-4">
@@ -332,8 +334,9 @@ export default function PrivacyPolicyPage() {
           </h3>
 
           <p>
-            Soovime olla veendunud, et olete teadlik kõigist oma andmekaitseõigustest.
-            Igal lehe kasutajal on õigus järgmistele tingimustele:
+            Soovime olla veendunud, et olete teadlik kõigist oma
+            andmekaitseõigustest. Igal lehe kasutajal on õigus järgmistele
+            tingimustele:
           </p>
 
           <ul className="list-disc my-4 mx-0 pl-10 space-y-2">
@@ -346,8 +349,8 @@ export default function PrivacyPolicyPage() {
               et parandaksime Teie arvates ebatäpsed andmed...
             </li>
             <li>
-              <strong>Kustutamisõigus</strong> – teatud tingimustel on teil õigus
-              nõuda Teie isikuandmete kustutamist.
+              <strong>Kustutamisõigus</strong> – teatud tingimustel on teil
+              õigus nõuda Teie isikuandmete kustutamist.
             </li>
             <li>
               <strong>Andmete töötlemise piiramise õigus</strong> – teatud
@@ -355,13 +358,14 @@ export default function PrivacyPolicyPage() {
               piiramist.
             </li>
             <li>
-              <strong>Õigus vaidlustada isikuandmete kasutamine</strong> – teatud
-              tingimustel on teil õigus vaidlustada Teie isikuandmete kasutamine.
+              <strong>Õigus vaidlustada isikuandmete kasutamine</strong> –
+              teatud tingimustel on teil õigus vaidlustada Teie isikuandmete
+              kasutamine.
             </li>
             <li>
-              <strong>Õigus andmete teisaldatavusele</strong> – teatud tingimustel
-              on teil õigus nõuda, et me edastaksime kogutud andmed kolmandale
-              osapoolele või otse teile.
+              <strong>Õigus andmete teisaldatavusele</strong> – teatud
+              tingimustel on teil õigus nõuda, et me edastaksime kogutud andmed
+              kolmandale osapoolele või otse teile.
             </li>
           </ul>
 
@@ -370,19 +374,17 @@ export default function PrivacyPolicyPage() {
           </h3>
 
           <p>
-            Vajadusel on meil õigus teha käesolevale privaatsuspoliitika dokumendile
-            muudatusi. Privaatsuspoliitika uuenemise järel muudame me selle allosas
-            paiknevat dokumendi värskendamise kuupäeva. Kui külastate ja kasutate
-            meie veebilehte ka pärast privaatsuspoliitika uuendamist, käsitleme me
-            seda kui Teie vaikivat nõusolekut muudatustega.
+            Vajadusel on meil õigus teha käesolevale privaatsuspoliitika
+            dokumendile muudatusi. Privaatsuspoliitika uuenemise järel muudame
+            me selle allosas paiknevat dokumendi värskendamise kuupäeva. Kui
+            külastate ja kasutate meie veebilehte ka pärast privaatsuspoliitika
+            uuendamist, käsitleme me seda kui Teie vaikivat nõusolekut
+            muudatustega.
           </p>
 
-          <p className="font-semibold mt-8">
-            Viimati muudetud 06/02/2025
-          </p>
+          <p className="font-semibold mt-8">Viimati muudetud 06/02/2025</p>
         </div>
       </div>
     </section>
   );
 }
-
