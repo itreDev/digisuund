@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { Chip } from "@/components/ui";
 import { AnimatedCard } from "@/components/AnimatedCard";
 import { Calendar } from "lucide-react";
@@ -32,39 +33,50 @@ export default function BlogPage() {
               .map((p) => p.trim())
               .filter(Boolean);
 
-            return (
-              <AnimatedCard
-                key={post.title}
-                delay={index * 100}
-                className="equal-height"
-              >
-                <div className="aspect-[4/3] bg-description relative">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+            // Get preview text (first paragraph or first 150 characters)
+            const previewText =
+              paragraphs[0] || post.description.substring(0, 150);
+            const truncatedPreview =
+              previewText.length > 150
+                ? previewText.substring(0, 150) + "..."
+                : previewText;
 
-                <div className="p-8 space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Chip>{post.type}</Chip>
-                    <div className="flex items-center gap-1.5 text-xs text-description font-light">
-                      <Calendar className="w-3.5 h-3.5" />
-                      <span>{formatEstonianDate(post.date)}</span>
+            return (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="block h-full"
+              >
+                <AnimatedCard
+                  delay={index * 100}
+                  className="equal-height h-full flex flex-col hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                >
+                  <div className="aspect-[4/3] bg-description/20 rounded-t-lg relative overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="p-6 space-y-4 flex-1 flex flex-col">
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <Chip>{post.type}</Chip>
+                      <div className="flex items-center gap-1.5 text-xs text-description font-light">
+                        <Calendar className="w-3.5 h-3.5" />
+                        <span>{formatEstonianDate(post.date)}</span>
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-montserrat font-semibold leading-snug text-foreground">
+                      {post.title}
+                    </h3>
+                    <div className="text-description font-light leading-relaxed space-y-3 flex-1">
+                      <p>{truncatedPreview}</p>
                     </div>
                   </div>
-                  <h3 className="text-xl font-montserrat font-semibold leading-snug">
-                    {post.title}
-                  </h3>
-                  <div className="text-description font-light leading-relaxed space-y-3">
-                    {paragraphs.map((paragraph, idx) => (
-                      <p key={idx}>{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-              </AnimatedCard>
+                </AnimatedCard>
+              </Link>
             );
           })}
         </div>

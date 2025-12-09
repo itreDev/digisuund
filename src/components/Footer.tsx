@@ -63,14 +63,6 @@ export default function Footer() {
                   Privaatsuspoliitika
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/contacts" // TODO: Add terms of service link
-                  className="text-sm text-description font-light"
-                >
-                  Kasutustingimused
-                </Link>
-              </li>
             </ul>
           </div>
           <div>

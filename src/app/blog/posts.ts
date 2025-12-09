@@ -1,7 +1,30 @@
-export const posts = [
+export interface BlogPost {
+  title: string;
+  description: string;
+  date: Date;
+  type: string;
+  image: string;
+  slug: string;
+}
+
+function createSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[ä]/g, "a")
+    .replace(/[ö]/g, "o")
+    .replace(/[õ]/g, "o")
+    .replace(/[ü]/g, "u")
+    .replace(/[š]/g, "s")
+    .replace(/[ž]/g, "z")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export const posts: BlogPost[] = [
   {
     title:
       "Kuidas alustada digiturundusega: praktiline teekond väikesele ettevõttele",
+    slug: "kuidas-alustada-digiturundusega-praktiline-teekond-vaikesele-ettevottele",
     description: `Digiturundusega alustamine võib tunduda esmapilgul segane – kanaleid on palju, nõuandeid veel rohkem ning igaüks lubab kiireid tulemusi. Tegelikkuses algab kõik üsna lihtsast: selge siht, korralik vundament ja järjepidevad sammud. Väikeettevõtte jaoks on digiturundus võimalus kasvatada oma nähtavust täpselt seal, kus inimesed päriselt tegutsevad, ning teha seda paindlikult ja kontrollitava eelarvega.
       <br />  
       Esimene samm on alati eesmärk. Kui pole täpselt teada, kas soov on suurendada päringuid, müüki või lihtsalt teadlikkust, jääb ka kogu ülejäänud tegevus ähmaseks. Ettevõte, kes võtab endale aega mõelda, mida ta kolme, kuue või kaheteistkümne kuu pärast saavutada tahab, loob kohe alguses endale tohutu eelise. Sama oluline on mõista oma klienti: kellele müüd, millist probleemi lahendad ja kuidas inimene üldse otsusele jõuab. Lihtne ostupersoona joonistab kogu pildi selgeks.
@@ -35,6 +58,7 @@ export const posts = [
     date: new Date(2024, 0, 12),
     type: "SEO",
     image: "/images/seo-blog.png",
+    slug: "seo-pohiteadmised-2024-kuidas-google-silmis-nahtavaks-saada",
   },
   {
     title:
@@ -56,5 +80,6 @@ export const posts = [
     date: new Date(2024, 11, 1),
     type: "Sotsiaalmeedia",
     image: "/images/social-media-blog.png",
+    slug: "sotsiaalmeedia-sisu-loomine-kuidas-alustada-niinimetatud-tuhjalt-lehelt",
   },
 ];
