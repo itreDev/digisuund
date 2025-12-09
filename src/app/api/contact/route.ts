@@ -12,24 +12,21 @@ export async function POST(request: NextRequest) {
     const emailPassword = process.env.EMAIL_PASSWORD;
     const emailHost = process.env.EMAIL_HOST || "smtp.gmail.com";
     const emailPort = parseInt(process.env.EMAIL_PORT || "587");
-    const recipientEmail = process.env.RECIPIENT_EMAIL || emailUser;
+    const recipientEmail = process.env.DEFAULT_RECIPIENT_EMAIL;
 
     if (!emailUser || !emailPassword) {
-      const message =
-        "Email configuration is missing. Skipping send in non-production.";
-
-      if (process.env.NODE_ENV !== "production") {
-        console.warn(message);
-        return NextResponse.json(
-          { message: "Email sending skipped in development" },
-          { status: 200 }
-        );
-      }
-
-      console.error(message);
+      console.warn("Email configuration is missing. Skipping send.");
       return NextResponse.json(
-        { error: "Server configuration error" },
-        { status: 500 }
+        { message: "Email sending skipped" },
+        { status: 200 }
+      );
+    }
+
+    if (!recipientEmail) {
+      console.warn("DEFAULT_RECIPIENT_EMAIL not set. Skipping send.");
+      return NextResponse.json(
+        { message: "Email sending skipped" },
+        { status: 200 }
       );
     }
 
@@ -65,6 +62,9 @@ export async function POST(request: NextRequest) {
             <p><strong>Uudiskiri:</strong> ${
               validatedData.newsletter ? "Jah" : "Ei"
             }</p>
+            <p><strong>Privaatsuspoliitikaga nõustunud:</strong> ${
+              validatedData.privacyConsent ? "Jah" : "Ei"
+            }</p>
           </div>
           
           <div style="margin: 20px 0;">
@@ -82,6 +82,7 @@ Nimi: ${validatedData.name}
 E-post: ${validatedData.email}
 ${validatedData.phone ? `Telefon: ${validatedData.phone}` : ""}
 Uudiskiri: ${validatedData.newsletter ? "Jah" : "Ei"}
+Privaatsuspoliitikaga nõustunud: ${validatedData.privacyConsent ? "Jah" : "Ei"}
 
 Sõnum:
 ${validatedData.message}
