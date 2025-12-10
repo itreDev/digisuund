@@ -12,7 +12,6 @@ import {
   TrendingUp,
   CircleCheck,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 export default function TeenusedPage() {
   const services = [
@@ -60,6 +59,18 @@ export default function TeenusedPage() {
       features: [
         "Kampaaniate loomine",
         "Märksõnade strateegia",
+        "Eelarvete optimeerimine",
+        "A/B testimine",
+      ],
+    },
+    {
+      title: "Meta Ads kampaaniad",
+      description:
+        "Jõuame Sinu ideaalse kliendini Facebookis ja Instagramis läbi nutikalt seadistatud ja optimeeritud kampaaniate.",
+      icon: Megaphone,
+      features: [
+        "Kampaaniate loomine",
+        "Sihtrühmade seadistamine",
         "Eelarvete optimeerimine",
         "A/B testimine",
       ],

@@ -77,7 +77,7 @@ export const posts: BlogPost[] = [
       <br />
       Sotsiaalmeedia on koht, kus bränd saab olla inimlik. Ja just see — inimlikkus — ongi lõpuks sisu kõige tugevam valuuta.
       <br />`,
-    date: new Date(2024, 11, 1),
+    date: new Date(2025, 11, 1),
     type: "Sotsiaalmeedia",
     image: "/images/social-media-blog.png",
     slug: "sotsiaalmeedia-sisu-loomine-kuidas-alustada-niinimetatud-tuhjalt-lehelt",

@@ -17,7 +17,7 @@ const contactDetails = [
   },
   {
     label: "Telefon",
-    value: "+372 536 11983",
+    value: "+372 536 1983",
     icon: Phone,
     href: "tel:+37253611983",
   },
@@ -232,7 +232,10 @@ export default function ContactsPage() {
                     htmlFor="privacyConsent"
                     className="text-sm font-light cursor-pointer"
                   >
-                    Nõustun <a href="/privat-policy" className="text-primary underline">privaatsuspoliitikaga</a>
+                    Nõustun{" "}
+                    <a href="/privat-policy" className="text-primary underline">
+                      privaatsuspoliitikaga
+                    </a>
                   </label>
                 </div>
                 {errors.privacyConsent && (
